@@ -12,6 +12,14 @@
     <script>
       var gameInstance = UnityLoader.instantiate("gameContainer", "build.json", {onProgress: UnityProgress,Module:{onRuntimeInitialized: function() {UnityProgress(gameInstance, "complete")}}});
     </script>
+	  <button id="fullscreenBtn">Go Fullscreen</button>
+<script>
+  document.getElementById("fullscreenBtn").addEventListener("touchend", () => {
+    if (gameInstance && typeof gameInstance.SetFullscreen === "function") {
+      gameInstance.SetFullscreen(1);
+    }
+  });
+</script>
   </head>
   <body>
     <div class="webgl-content">
@@ -23,4 +31,5 @@
 	        </div>
     </div>
   </body>
+
 </html>
